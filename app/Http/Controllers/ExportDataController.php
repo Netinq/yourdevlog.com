@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Article;
 
 class ExportDataController extends Controller
 {
-    public function index($website_id)
+    public function show($id)
     {
-        $articles = Article::where('website_id', $website_id)->get();
-        return view('data.data', compact('articles'));
+        $articles = Article::where('website_id', $id)->get();
+        return view('data', compact('articles'));
     }
 }

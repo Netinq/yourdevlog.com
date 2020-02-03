@@ -18,6 +18,9 @@
           <a href="{{ route('articles.create') }}">
             <button class="btn btn-primary">creer</button>
           </a>
+          <a href="{{ route('data.show', $website->id) }}">
+            <button class="btn btn-primary">data</button>
+          </a>
       </div>
       @foreach($articles as $article)
         <div class="card"  data-article-id="{{ $article->id }}">
