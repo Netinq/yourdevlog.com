@@ -1,0 +1,74 @@
+.form
+{
+  background-color: #272524;
+  min-height: 100vh;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.form-container
+{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10vh;
+  padding-left: 65px;
+}
+.form-container h1
+{
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+}
+.form .form-group label
+{
+  color: #ffffff;
+  text-transform: uppercase;
+}
+.form .form-group input
+{
+  color: #ffffff;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.05);
+  outline: none !important;
+}
+.form select,.form select:active,.form select:focus, .form textarea, .form textarea:active, .form textarea:focus
+{
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  outline: none !important;
+}
+.form textarea{
+  height: 150px;
+}
+.form select option {
+  background-color: #272524;
+}
+.form button
+{
+  width: 100%;
+  background-color: #272524;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  margin-top: 25px;
+  box-sizing: border-box;
+}
+.form button:hover, .form button:focus
+{
+  background-color: #ffffff;
+  color: #272524;
+  border: 2px solid #ffffff;
+}
+.form button:active
+{
+  background-color: #e9e9e9 !important;
+  color: #272524 !important;
+  border: 2px solid #e9e9e9 !important;
+}
+.form .message
+{
+  text-align: center;
+}
+.form .message a
+{
+  display: inline;
+  color: #1B1B1B;
+}

@@ -1,7 +1,51 @@
-@extends('layouts.app')
+@extends('layouts.app', ['styles'=> ['websites/show']])
 
 @section('content')
-<div class="container">
+<div class="col-md-7 articles">
+  <div class="articles-content col-md-10 offset-2">
+    @foreach($articles as $article)
+    <div class="article" data-article-id="{{ $article->id }}">
+      <div class="article-header">
+        <h3>{{$article->name}}</h3>
+        <span class="name">{{$website->name}}</span>
+        <span class="type">{{$article->type}}</span>
+      </div>
+      <div class="article-body">
+        <p>{{$article->content}}</p>
+      </div>
+    </div>
+    @endforeach
+  </div>
+</div>
+<div class="col-md-5 informations">
+  <div class="website">
+    <div class="box-web">
+      <div class="box-header">
+        <h3>{{$website->name}}</h3>
+        <span>{{$website->url}}</span>
+      </div>
+      <div class="box-body">
+        <div class="info">
+            <h4>{{count($articles)}} articles</h4>
+        </div>
+        <div class="info">
+            <h4>data uuid</h4>
+            <code class="uuid">{{$website->id}}</code>
+        </div>
+        <div class="info">
+          <h4>iframe</h4>
+          <code class="iframe" type="html">&lt;iframe id="yourdevlog_iframe" 
+title="YourDevlog : {{$website->name}}"
+width="100%" height="100%" allowfullscreen=true style="border: none;" 
+src="{{ route('data.show', $website->id) }}"&gt
+</iframe>
+          </code>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{-- <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
@@ -31,5 +75,5 @@
       @endforeach
     </div>
   </div>
-</div>
+</div> --}}
 @endsection

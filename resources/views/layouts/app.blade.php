@@ -68,4 +68,9 @@
     </body>
         
     <script src="{{ asset('js/app.js') }}"></script>
+    @if($scripts ?? null)
+        @foreach($scripts as $script)
+        <script src="{{ asset('js/'.$script.'.js') }}"> </script>
+        @endforeach
+    @endif
 </html>

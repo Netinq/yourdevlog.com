@@ -8,8 +8,13 @@ use Illuminate\Support\Str;
 
 class Article extends Model
 {
+    public $incrementing = false;
     protected $casts = [
         'id' => 'string',
+    ];
+
+    protected $fillable = [
+        'name', 'website_id', 'content',
     ];
         
     protected static function boot()

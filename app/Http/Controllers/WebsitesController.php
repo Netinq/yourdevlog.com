@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Website;
 use App\Article;
+use App\Type;
 
 class WebsitesController extends Controller
 {
@@ -33,7 +34,7 @@ class WebsitesController extends Controller
     {
         $request->validate([
             'name' => 'required|max:35',
-            'url' => 'required|url|unique:websites',
+            'url' => 'required|url',
         ]);
         
         $website = new Website();
@@ -48,6 +49,12 @@ class WebsitesController extends Controller
     public function show($id)
     {
         $articles = Article::where('website_id', $id)->get();
+        foreach($articles as $article)
+        {
+            $type = Type::where('article_id', $article->id)->first();
+            $article->type = $type->name;
+            $article->color = $type->color;
+        }
         $website = Website::where('id', $id)->first();
         return view('website.show', compact('articles', 'website'));
     }

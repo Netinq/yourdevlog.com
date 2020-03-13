@@ -19,6 +19,10 @@
           <div class="sub-box col-10 offset-1">
             Edit informations
           </div>
+          <a href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><div class="sub-box col-10 offset-1" style="color: #E34545; text-decoration:none;">
+            Logout
+          </div></a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
           <div class="sub-box col-10 offset-1" style="color: #E34545;">
             Delete account
           </div>

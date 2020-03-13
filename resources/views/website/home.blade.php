@@ -1,25 +1,32 @@
-@extends('layouts.app', ['styles' => ['website/home']])
+@extends('layouts.app', ['styles' => ['websites/home']])
 
 @section('content')
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      @if (session('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-          {{ session('success') }}
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      @endif 
-      @foreach($websites as $website)
-        <div class="card"  data-website-id="{{ $website->id }}">
-          <div class="card-header">{{$website->name}}</div>
-          <div class="card-body">{{$website->url}}</div>
-          <a href="{{ route('websites.show', $website->id) }}"><button class="btn btn-primary">Show</button></a>
-        </div>
+<div class="website offset-2 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+  <table class="table">
+    <thead>
+      <tr class="start-tr">
+        <th scope="col" style="width: 16.66%">{{count($websites)}}</th>
+        <th scope="col">Name</th>
+        <th scope="col">URL</th>
+        <th scope="col">Manage</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach($websites as $index => $website)
+      <tr data-website-id="{{ $website->id }}">
+        <th scope="row">{{$index}}</th>
+        <td>{{ $website->name }}</td>
+        <td>{{ $website->url }}</td>
+        <td class="manage">
+          <a href="{{route('websites.index')}}" onclick="event.preventDefault();document.getElementById('website_delete-form').submit();" ><div class="btn web-del" title="WARNING, you will delete the website">delete</div></a>
+        </td>
+        <form id="website_delete-form" action="{{ route('websites.destroy', [$website->id]) }}" method="POST">
+          @csrf
+          @method('DELETE')
+        </form>
+      </tr>
       @endforeach
-    </div>
-  </div>
+    </tbody>
+  </table>
 </div>
 @endsection

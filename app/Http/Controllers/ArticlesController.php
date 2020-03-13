@@ -46,6 +46,7 @@ class ArticlesController extends Controller
     {
         $this->validate($request,[
             'name' => 'required|max:35',
+            'type' => 'required',
             'content' => 'required',
         ]);
         
@@ -67,8 +68,8 @@ class ArticlesController extends Controller
 
     public function show($id)
     {
-        $article = Article::find($id)->first();
-        return view('article.show', compact('article'));
+        $articles = Article::find($id)->first();
+        return view('article.show', compact('articles'));
     }
 
     public function edit($id)

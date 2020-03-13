@@ -1,4 +1,4 @@
-@extends('layouts.app', ['styles' => ['websites/create']])
+@extends('layouts.app', ['styles' => ['websites/create'], 'scripts' => ['websites/create']])
 
 @section('content')
 <div class="form col-md-8 col-lg-6 row">
@@ -32,27 +32,31 @@
   </div>
 </div>
 <div class="exemple col-md-6">
+  <div class="box-web col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+    <div class="box-header">
+      <h3 id="exemple_name">name</h3>
+      <span id="exemple_url">url</span>
+    </div>
+    <div class="box-body">
+        <div class="info">
+            <h4>0 articles</h4>
+            <a href="#"><div class="btn">show</div></a>
+        </div>
+        <div class="info">
+            <h4>data uuid</h4>
+            <code class="uuid">44zae45e-4ee4z-5g8z68</code>
+        </div>
+        <div class="info">
+            <h4>iframe</h4>
+            <code class="iframe" type="html">&lt;iframe id="inlineFrameExample" 
+title="Inline Frame Example"
+width="100%"
+height="100%"
+src="https://yourdevlogs.com/data/example"&gt
+</iframe>
+            </code>
+        </div>
+    </div>
 </div>
-{{-- <div class="container">
-  <div class="row justify-content-center">
-    <form action="{{ route('websites.store') }}" method="POST">
-      @csrf
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="name" class="form-control" id="name" name="name" placeholder="Enter name">
-        @if ($errors->has('name'))
-          <span class="text-danger">{{ $errors->first('name') }}</span>
-        @endif
-      </div>
-      <div class="form-group">
-        <label for="url">url</label>
-        <input type="url" class="form-control" id="url" name="url" placeholder="url">
-        @if ($errors->has('url'))
-          <span class="text-danger">{{ $errors->first('url') }}</span>
-        @endif
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
-</div> --}}
+</div>
 @endsection
