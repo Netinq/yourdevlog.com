@@ -1,9 +1,7 @@
 <?php
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', '/home');
 
 Auth::routes();
 Route::resource('websites', 'WebsitesController');
@@ -13,5 +11,3 @@ Route::resource('data', 'ExportDataController');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

@@ -16,7 +16,6 @@ class CreateArticlesTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('website_id');
-            $table->uuid('type_id');
             
             $table->string('name');
             $table->text('content');
@@ -26,7 +25,6 @@ class CreateArticlesTable extends Migration
             $table->index('id');
             $table->unique('id');
             $table->foreign('website_id')->references('id')->on('websites')->onDelete('cascade');
-            $table->foreign('type_id')->references('id')->on('types')->onDelete('restrict');
         });
     }
 

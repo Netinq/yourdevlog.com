@@ -52,10 +52,16 @@ class ArticlesController extends Controller
         $article = new article();
         $article->name = request('name');
         $article->website_id = request('website_id');
-        $article->type_id = request('type_id');
         $article->content = request('content');
- 
         $article->save();
+
+        $type = new Type();
+        $type->user_id = Auth::id();
+        $type->article_id = $article->id;
+        $type->name = request('type');
+        $type->color = request('type_color');
+        $type->save();
+        
         return redirect('websites')->with('success', 'Article enregistré');
     }
 

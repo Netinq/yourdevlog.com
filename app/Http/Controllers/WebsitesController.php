@@ -16,7 +16,12 @@ class WebsitesController extends Controller
 
     public function index()
     {   
-        return redirect()->home();
+        $websites = Website::where('user_id', Auth::id())->get();
+        foreach($websites as $website)
+        {
+            $website->articles = Article::where('website_id', $website->id)->count();
+        }
+        return view('website.home', compact('websites'));
     }
 
     public function create()
@@ -26,15 +31,9 @@ class WebsitesController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request,[
+        $request->validate([
             'name' => 'required|max:35',
             'url' => 'required|url|unique:websites',
-            
-        ],[
-            // 'name.required' => 'Champs requis',
-            // 'name.max' => '',
-            // 'url.required' => 'Champs requis',
-            // 'url.url' => __('format.url')
         ]);
         
         $website = new Website();

@@ -27,15 +27,12 @@
       </div>
       <div class="form-group">
         <label for="type">Type Select</label>
-        <select class="form-control" id="type" name="type_id">
-          @foreach($types as $type)
-            <option value="{{ $type->id }}" data-type-id="{{ $type->id }}">
-              {{ $type->name }}
-            </option>
-          @endforeach
-        </select>
-        @if ($errors->has('type_id'))
-          <span class="text-danger">{{ $errors->first('type_id') }}</span>
+        <input type="type" class="form-control" id="type" name="type" placeholder="Enter type">
+        @if ($errors->has('type'))
+          <span class="text-danger">{{ $errors->first('type') }}</span>
+        @endif
+        @if ($errors->has('type'))
+          <span class="text-danger">{{ $errors->first('type') }}</span>
         @endif
       </div>
       <div class="form-group">

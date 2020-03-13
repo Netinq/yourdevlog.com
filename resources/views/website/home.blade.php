@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['styles' => ['website/home']])
 
 @section('content')
 <div class="container">

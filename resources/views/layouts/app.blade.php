@@ -1,82 +1,71 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+@section('description', '')
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+        <meta name="keywords" content="cuisine, dev, log">
+        <meta name="description" content="@yield('description')">
+        <meta name="author" content="Quentin Sar">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="reply-to" content="contact@sarquentin.fr">
+        <meta name='subject' content="YourDevlog">
+        <meta name='language' content='FR'>
+        <meta name='owner' content='Quentin Sar'>
+        <meta name='url' content='yourdevlog.com'>
+        <meta name='identifier-URL' content='yourdevlog.com'>
+        <meta name='target' content='all'>
+        <meta name="theme-color" content="#2D3145">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link rel='shortcut icon' type='image/ico' href='{{ asset('images/logo.png') }}'>
+        <link rel='logo' type='image/png' href='{{ asset('images/logo.png') }}'>
 
-    
-</head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <meta property="og:title" content="@hasSection('title') {{Config::get('app.name')}} - @yield('title') @else {{Config::get('app.name')}} @endif" />
+        <meta property="og:description" content="@yield('description')" />
+        <meta property="og:image" content="{{asset('images/meta.png')}}" />
+        <meta property="og:site_name" content="@hasSection('title') {{Config::get('app.name')}} - @yield('title') @else {{Config::get('app.name')}} @endif" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="fr_FR" />
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@Netinq" />
+        <meta name="twitter:title" content="@hasSection('title') {{Config::get('app.name')}} - @yield('title') @else {{Config::get('app.name')}} @endif" />
+        <meta name="twitter:description" content="@yield('description')" />
+        <meta name="twitter:image" content="{{asset('images/meta.png')}}" />
 
-                    </ul>
+        <title>
+            @hasSection('title') {{Config::get('app.name')}} : @yield('title') 
+            @else {{Config::get('app.name')}} @endif
+        </title>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+        <meta http-equiv="content-language" content="fr">
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+        <!-- STATIC Stylesheet -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/layouts/navbar.css') }}">
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        @hasSection('noMaster') @else
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/master.css') }}">
+        @endif
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
-</body>
+        <!-- GENERATE Stylesheet -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+        @if($styles ?? null)
+            @foreach($styles as $style)
+            <link rel="stylesheet" type="text/css" 
+            href="{{ asset('css/'.$style.'.css') }}">
+            @endforeach
+        @endif
+
+    </head>
+    @if(!isset($noHeader))@include('layouts.navbar')@endif
+    <body class="row">
+        @yield('content')
+    </body>
+        
+    <script src="{{ asset('js/app.js') }}"></script>
 </html>

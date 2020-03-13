@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Website;
+use App\Article;
 
 class HomeController extends Controller
 {
@@ -26,6 +27,10 @@ class HomeController extends Controller
     public function index()
     {
         $websites = Website::where('user_id', Auth::id())->get();
-        return view('website.home', compact('websites'));
+        foreach($websites as $website)
+        {
+            $website->articles = Article::where('website_id', $website->id)->count();
+        }
+        return view('home', compact('websites'));
     }
 }
