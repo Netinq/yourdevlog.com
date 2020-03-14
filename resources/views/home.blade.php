@@ -2,7 +2,7 @@
 
 @section('title', 'Websites home')
 @section('content')
-<div class="container col-10 offset-1">
+<div class="container col-11 offset-1">
     @if (count($websites) <= 0)
     <div class="empty offset-2">
         <h3>You don't have any website register</h3>

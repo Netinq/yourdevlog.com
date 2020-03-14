@@ -2,7 +2,7 @@
 
 @section('title', $website->name)
 @section('content')
-<div class="offset-2 informations d-block d-md-none">
+<div class="offset-2 col-10 informations d-block d-md-none">
   <div class="website">
     <div class="box-web">
       <div class="box-header">
