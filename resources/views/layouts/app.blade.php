@@ -49,7 +49,7 @@
 
         <title>
             @hasSection('title') {{Config::get('app.name')}} : @yield('title') 
-            @else {{Config::get('app.name')}} @endif
+            @else {{Config::get('app.name')}} : Create and manage our devlogs @endif
         </title>
 
         <meta http-equiv="content-language" content="fr">

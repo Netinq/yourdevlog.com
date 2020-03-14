@@ -1,5 +1,6 @@
 @extends('layouts.app', ['styles' => ['auth/form'], 'noHeader' => true])
 
+@section('title', 'Login to your account')
 @section('content')
 <div class="branding col-sm-7">
     <img alt="YourDevlog's logo" src="{{asset('images/logo.png')}}">

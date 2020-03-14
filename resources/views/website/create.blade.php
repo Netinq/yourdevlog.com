@@ -1,5 +1,6 @@
 @extends('layouts.app', ['styles' => ['websites/create'], 'scripts' => ['websites/create']])
 
+@section('title', 'Register a website')
 @section('content')
 <div class="form col-md-8 col-lg-6 row">
   <div class="form-container col-10 offset-1 col-sm-8 offset-sm-2">

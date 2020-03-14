@@ -1,5 +1,6 @@
 @extends('layouts.app', ['styles' => ['home']])
 
+@section('title', 'Websites home')
 @section('content')
 <div class="container col-10 offset-1">
     @if (count($websites) <= 0)

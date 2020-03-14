@@ -1,5 +1,6 @@
 @extends('layouts.app', ['styles'=> ['websites/show']])
 
+@section('title', $website->name)
 @section('content')
 <div class="col-md-7 articles">
   <div class="articles-content col-md-10 offset-2">

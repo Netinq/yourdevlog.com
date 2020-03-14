@@ -1,5 +1,6 @@
 @extends('layouts.app', ['styles' => ['websites/home']])
 
+@section('title', 'Websites list')
 @section('content')
 <div class="website offset-2 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
   <table class="table">
