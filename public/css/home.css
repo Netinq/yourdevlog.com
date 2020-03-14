@@ -16,6 +16,8 @@
   margin: 20px;
   padding: 25px;
 }
+@media screen and (max-width: 991px){.box-web { width: calc(100% / 2 - 40px); }}
+@media screen and (max-width: 768px){.box-web { width: calc(100% - 40px);margin-left: 30px; }}
 .box-web .box-header
 {
   text-align: center;
