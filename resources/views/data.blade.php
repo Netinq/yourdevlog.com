@@ -71,7 +71,7 @@
   font-weight: bold;
   margin-left: 2.5px;
 }
-.article .articles-body p
+.article .article-body p
 {
   white-space: pre-wrap;
 }
