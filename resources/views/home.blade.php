@@ -2,6 +2,17 @@
 
 @section('title', 'Websites home')
 @section('content')
+@if ( Session::has('success') )
+<div class="popup offset-md-1 col-md-11 col-10 offset-2">
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Fermer">
+      <span aria-hidden="true">&times;</span>
+      <span class="sr-only">Fermer</span>
+    </button>
+    {{ Session::get('success') }}
+  </div>
+</div>
+@endif
 <div class="container col-11 offset-1">
     @if (count($websites) <= 0)
     <div class="empty offset-2">

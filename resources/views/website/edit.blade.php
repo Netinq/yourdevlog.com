@@ -1,12 +1,13 @@
 @extends('layouts.app', ['styles' => ['websites/create']])
 
-@section('title', 'Register a website')
+@section('title', 'edit a website')
 @section('content')
 <div class="form col-md-8 col-lg-6 row">
   <div class="form-container col-10 offset-1 col-sm-8 offset-sm-2">
     <h1>edit a website</h1>
-    <form method="POST" action="{{ route('websites.store') }}">
+    <form method="POST" action="{{ route('websites.update', $website->id) }}">
       @csrf
+      @method('PUT')
       <div class="form-group">
         <label for="name">Name</label>
         <input type="name" class="form-control @if($errors->has('name')) is-invalid @endif" id="name" name="name" value="{{$website->name}}">

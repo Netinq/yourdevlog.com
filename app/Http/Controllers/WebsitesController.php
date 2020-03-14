@@ -43,7 +43,7 @@ class WebsitesController extends Controller
         $website->user_id = Auth::id();
  
         $website->save();
-        return redirect()->home()->with('success', 'Site enregistré');
+        return redirect()->home()->with('success', $website->name.' has been created');
     }
 
     public function show($id)
@@ -70,7 +70,7 @@ class WebsitesController extends Controller
     {
         $this->validate($request,[
             'name' => 'max:35',
-            'url' => 'url|unique:websites',
+            'url' => 'url',
         ]);
         
         $website = Website::find($id);
@@ -78,12 +78,13 @@ class WebsitesController extends Controller
         $website->url = request('url');
  
         $website->save();
-        return redirect()->home()->with('success', 'Site update');
+        return redirect()->home()->with('success', $website->name.' has been updated');
     }
 
     public function destroy($id)
     {
+        $website = Website::where('id', $id)->first();
         Website::destroy($id);
-        return view('website.show', $id)->with('success', 'Site supprimé');;
+        return redirect()->home()->with('success', $website->name.' has been deleted');
     }
 }

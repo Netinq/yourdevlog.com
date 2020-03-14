@@ -65,7 +65,7 @@ class ArticlesController extends Controller
         $type->color = request('type_color');
         $type->save();
         
-        return redirect('home')->with('success', 'Article enregistré');
+        return redirect()->route('websites.show', $article->website_id)->with('success', 'An article has been article was created');
     }
 
     public function show($id)
@@ -95,16 +95,23 @@ class ArticlesController extends Controller
         $article = Article::find($id);
         $article->name = request('name');
         $article->website_id = request('website_id');
-        $article->type_id = request('type_id');
         $article->content = request('content');
+        $article->version = request('version');
+        $article->save();
+
+        $type = Type::where('article_id', $id);
+        $type->name = request('type');
+        $type->color = request('type_color');
+        $type->save();
  
         $article->save();
-        return redirect()->home()->with('success', 'Article update');
+        return redirect()->route('websites.show', $article->website_id)->with('success', 'An article has been article was updated');
     }
 
     public function destroy($id)
     {
+        $article = Article::where('id', $id)->first();
         Article::destroy($id);
-        return redirect()->home()->with('success', 'Article supprimé');
+        return redirect()->route('websites.show', $article->website_id)->with('success', 'An article has been article was deleted');
     }
 }
