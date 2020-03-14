@@ -9,7 +9,20 @@
     <a href="{{route('home')}}"><div class="btn btn-home">Back to home</div></a>
 </div>
 <div class="articles-content col-sm-8">
-  <iframe id="yourdevlog_iframe" title="YourDevlog : YourDevlog" width="100%" height="100%" allowfullscreen=true style="border: none;" src="https://yourdevlog.com/data/{{$data_url}}">
+  <div class="articles-content">
+    @foreach($articles as $article)
+    <div class="article" data-article-id="{{ $article->id }}">
+      <div class="article-header">
+        <h3>{{$article->name}}</h3>
+        <span class="name">{{$article->website_name}}</span>
+        <span class="type">{{$article->type}}</span>
+      </div>
+      <div class="article-body">
+        <p>{{$article->content}}</p>
+      </div>
+    </div>
+    @endforeach
+  </div>
 </div>
 @endsection
 
