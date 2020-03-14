@@ -8,7 +8,7 @@
     <span>See our devlog</span>
     <a href="{{route('home')}}"><div class="btn btn-home">Back to home</div></a>
 </div>
-<div class="articles-content col-sm-8">
+<div class="articles-content col-sm-8 offset-sm-4">
   <div class="articles-content">
     @foreach($articles as $article)
     <div class="article" data-article-id="{{ $article->id }}">
