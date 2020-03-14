@@ -1,4 +1,5 @@
-@section('description', '')
+@section('description', 'Create a devlog and manage it. You can register our websites to create a devlog for our comminunty/staff. 
+It\'s simple, fast and practice. Improve your changelogs, maintenance report...')
 
 <!DOCTYPE html>
 <html lang="fr">
