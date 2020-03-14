@@ -12,9 +12,10 @@
       @foreach($articles as $article)
       <div class="article" data-article-id="{{ $article->id }}">
         <div class="article-header">
-          <h3>{{$article->name}}</h3>
-          <span class="name">{{$article->website_name}}</span>
+          <h3>{{$article->name}}   <span class="name">{{$article->website_name}}</span></h3>
           <span class="type">{{$article->type}}</span>
+          <span class="version">{{$article->version}}</span>
+          <p class="date">published on {{$article->date}}</p>
         </div>
         <div class="article-body">
           <p>{{$article->content}}</p>
@@ -74,5 +75,14 @@
 .article .article-body p
 {
   white-space: pre-wrap;
+}
+.articles-content .article .article-header .date
+{
+  font-size: .7rem;
+  margin-left: 2.5px;
+  margin-top: 10px;
+  color: #272727;
+  margin-bottom: 5px;
+  font-style: italic;
 }
 </style>

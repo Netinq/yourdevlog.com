@@ -54,6 +54,7 @@ class WebsitesController extends Controller
             $type = Type::where('article_id', $article->id)->first();
             $article->type = $type->name;
             $article->color = $type->color;
+            $article->date = $article->created_at->format('d/m/y');
         }
         $website = Website::where('id', $id)->first();
         return view('website.show', compact('articles', 'website'));

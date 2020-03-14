@@ -80,6 +80,15 @@
   font-weight: bold;
   margin-left: 2.5px;
 }
+.articles-content .article .article-header .date
+{
+  font-size: .7rem;
+  margin-left: 2.5px;
+  margin-top: 10px;
+  color: #272727;
+  margin-bottom: 5px;
+  font-style: italic;
+}
 .article .article-body p
 {
   white-space: pre-wrap;

@@ -22,6 +22,7 @@ class PublicController extends Controller
             $article->color = $type->color;
             $website_data = Website::where('id', $article->website_id)->first();
             $article->website_name = $website_data->name;
+            $article->date = $article->created_at->format('d/m/y');
         }
         return view('devlog', compact('data_url', 'articles'));
     }

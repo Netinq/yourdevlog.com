@@ -47,6 +47,7 @@ class ArticlesController extends Controller
         $this->validate($request,[
             'name' => 'required|max:35',
             'type' => 'required',
+            'version' => 'required|max:50',
             'content' => 'required',
         ]);
         
@@ -54,6 +55,7 @@ class ArticlesController extends Controller
         $article->name = request('name');
         $article->website_id = request('website_id');
         $article->content = request('content');
+        $article->version = request('version');
         $article->save();
 
         $type = new Type();

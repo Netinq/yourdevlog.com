@@ -35,6 +35,13 @@
         @endif
       </div>
       <div class="form-group">
+        <label for="version">Version</label>
+        <input style="width: 45%;" type="version" class="form-control" id="version" name="version" placeholder="beta-0.1.0">
+        @if ($errors->has('version'))
+          <span class="text-danger">{{ $errors->first('version') }}</span>
+        @endif
+      </div>
+      <div class="form-group">
         <label for="content">content</label>
         <textarea id="content" class="form-control" name="content" placeholder="- New Design
 - We are introduce a new search engine" ></textarea>

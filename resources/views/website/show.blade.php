@@ -35,9 +35,10 @@ src="{{ route('data.show', $website->id) }}"&gt
     @foreach($articles as $article)
     <div class="article" data-article-id="{{ $article->id }}">
       <div class="article-header">
-        <h3>{{$article->name}}</h3>
-        <span class="name">{{$website->name}}</span>
+        <h3>{{$article->name}}   <span class="name">{{$website->name}}</span></h3>
         <span class="type">{{$article->type}}</span>
+        <span class="version">{{$article->version}}</span>
+        <p class="date">published on {{$article->date}}</p>
       </div>
       <div class="article-body">
         <p>{{$article->content}}</p>
