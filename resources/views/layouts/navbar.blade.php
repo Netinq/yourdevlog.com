@@ -53,9 +53,9 @@
   </div>
   <div class="info">
     <div class="box social">
-      <a target="_blank" href="https://discord.gg/5G4TAp8"><img src="{{asset('images/icons/discord.svg')}}"></a>
-      <a target="_blank" href="https://twitter.com/YourDevlogOff"><img src="{{asset('images/icons/twitter.svg')}}"></a>
-      <a target="_blank" href="https://www.instagram.com/yourdevlog/"><img src="{{asset('images/icons/instagram.svg')}}"></a>
+      <a target="_blank" href="https://discord.gg/5G4TAp8"><img src="{{asset('images/icons/discord.svg')}}" alt="Discord"></a>
+      <a target="_blank" href="https://twitter.com/YourDevlogOff"><img src="{{asset('images/icons/twitter.svg')}}" alt="Twitter"></a>
+      <a target="_blank" href="https://www.instagram.com/yourdevlog/"><img src="{{asset('images/icons/instagram.svg')}}" alt="Instagram"></a>
     </div>
     {{-- <div class="box exit">
       <img src="{{asset('images/icons/exit.svg')}}">
