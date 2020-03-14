@@ -37,6 +37,9 @@ src="{{ route('data.show', $website->id) }}"&gt
 </iframe>
           </code>
         </div>
+        <div class="info">
+          <a href="{{route('websites.index')}}"><div class="btn website-man">manage</div></a>
+        </div>
       </div>
     </div>
   </div>
@@ -87,6 +90,9 @@ width="100%" height="100%" allowfullscreen=true style="border: none;"
 src="{{ route('data.show', $website->id) }}"&gt
 </iframe>
           </code>
+        </div>
+        <div class="info">
+          <a href="{{route('websites.index')}}"><div class="btn website-man">manage</div></a>
         </div>
       </div>
     </div>

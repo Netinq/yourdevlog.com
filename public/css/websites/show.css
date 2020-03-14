@@ -148,7 +148,7 @@
   display: inline-block;
   border: 1px solid #D65A31;
   color: #D65A31;
-  background-color: #ffffff;
+  background-color: #f7f7f7;
   box-sizing: border-box;
   margin-left: 10px;
 }
@@ -179,4 +179,8 @@
   border-radius: 5px;
   padding: 3px;
   color: #D65A31;
+}
+.website-man
+{
+  margin: 0 !important;
 }
