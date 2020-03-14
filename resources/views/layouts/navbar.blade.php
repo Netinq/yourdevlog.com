@@ -82,7 +82,7 @@
       title="instagram">
         <img src="{{asset('images/icons/instagram.svg')}}" alt="Instagram">
       </a>
-      <a target="_blank" href="https://yourdevlog.com/devlog" 
+      <a href="https://yourdevlog.com/devlog" 
       data-toggle="tooltip" 
       data-placement="auto" 
       data-container="body"
