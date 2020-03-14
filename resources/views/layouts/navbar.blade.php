@@ -2,7 +2,11 @@
   <a href="{{route('home')}}"><img alt="YourDevlog's logo" src="{{asset('images/logo.png')}}"></a>
   <div class="menu">
     <div class="item">
-      <a href="{{route('home')}}"><div class="box">
+      <a href="{{route('home')}}"><div class="box"
+        data-toggle="tooltip" 
+        data-placement="auto" 
+        data-container="body"
+        title="home">
         <img alt="Home icon" src="{{asset('images/icons/home.svg')}}">
       </div></a>
     </div>
@@ -30,7 +34,11 @@
       </div>
     </div>
     <div class="item">
-      <a href="{{route('websites.index')}}"><div class="box">
+      <a href="{{route('websites.index')}}"><div class="box"
+        data-toggle="tooltip" 
+        data-placement="auto" 
+        data-container="body"
+        title="websites list">
         <img alt="List icon" src="{{asset('images/icons/list.svg')}}">
       </div></a>
     </div>
@@ -53,10 +61,34 @@
   </div>
   <div class="info">
     <div class="box social">
-      <a target="_blank" href="https://discord.gg/5G4TAp8"><img src="{{asset('images/icons/discord.svg')}}" alt="Discord"></a>
-      <a target="_blank" href="https://twitter.com/YourDevlogOff"><img src="{{asset('images/icons/twitter.svg')}}" alt="Twitter"></a>
-      <a target="_blank" href="https://www.instagram.com/yourdevlog/"><img src="{{asset('images/icons/instagram.svg')}}" alt="Instagram"></a>
-      <a target="_blank" href="https://yourdevlog.com/devlog"><img src="{{asset('images/icons/book.svg')}}" alt="Book"></a>
+      <a target="_blank" href="https://discord.gg/5G4TAp8"
+      data-toggle="tooltip" 
+      data-placement="auto" 
+      data-container="body"
+      title="discord">
+        <img src="{{asset('images/icons/discord.svg')}}" alt="Discord">
+      </a>
+      <a target="_blank" href="https://twitter.com/YourDevlogOff"
+      data-toggle="tooltip" 
+      data-placement="auto" 
+      data-container="body"
+      title="twitter">
+        <img src="{{asset('images/icons/twitter.svg')}}" alt="Twitter">
+      </a>
+      <a target="_blank" href="https://www.instagram.com/yourdevlog/"
+      data-toggle="tooltip" 
+      data-placement="auto" 
+      data-container="body"
+      title="instagram">
+        <img src="{{asset('images/icons/instagram.svg')}}" alt="Instagram">
+      </a>
+      <a target="_blank" href="https://yourdevlog.com/devlog" 
+      data-toggle="tooltip" 
+      data-placement="auto" 
+      data-container="body"
+      title="devlog">
+        <img src="{{asset('images/icons/book.svg')}}" alt="Book">
+      </a>
     </div>
     {{-- <div class="box exit">
       <img src="{{asset('images/icons/exit.svg')}}">

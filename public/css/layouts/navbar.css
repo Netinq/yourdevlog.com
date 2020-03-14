@@ -4,7 +4,7 @@ nav
   width: 65px;
   position: fixed;
   background-color: #1B1B1B;
-  z-index: 10000;
+  z-index: 2;
   box-sizing: content-box;
   box-shadow:  0px 0px 5px #202020 !important;
 }
@@ -137,4 +137,13 @@ nav .info .exit img
 {
   height: 30px;
   margin: 17.5px;
+}
+.tooltip .tooltip-inner {
+  /* background-color: #272524 !important; */
+  opacity: 1 !important;
+  padding: 5px !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  text-transform: uppercase !important;
+  font-size: .7rem !important;
 }
