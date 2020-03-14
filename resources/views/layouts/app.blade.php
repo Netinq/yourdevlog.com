@@ -84,4 +84,9 @@ It\'s simple, fast and practice. Improve your changelogs, maintenance report...'
         <script src="{{ asset('js/'.$script.'.js') }}"> </script>
         @endforeach
     @endif
+    <script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      })
+    </script>
 </html>

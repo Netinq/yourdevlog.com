@@ -9,5 +9,6 @@ Route::resource('articles', 'ArticlesController');
 Route::resource('data', 'ExportDataController');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/devlog', 'HomeController@devlog')->name('devlog');
 
 Auth::routes();

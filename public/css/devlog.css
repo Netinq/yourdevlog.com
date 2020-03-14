@@ -1,0 +1,56 @@
+.branding
+{
+  min-height: 100vh;
+  background-color: #1B1B1B;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.branding img
+{
+  margin-top: 10%;
+  height: 45%;
+}
+.branding h1
+{
+  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: 7.5px;
+  margin: 0;
+}
+.branding span
+{
+  color: #ffffff;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+@media screen and (max-width: 575px)
+{
+  .branding
+  {
+    height: 17.5vh;
+    background-color: #1B1B1B;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+    box-shadow: 0 0 3px #1B1B1B;
+  }
+  .branding img
+  {
+    margin-top: 15px;
+    height: 45%;
+  }
+  .branding span
+  {
+    display: none;
+  }
+}
+.btn-home
+{
+  color: #D65A31;
+}
+.btn-home:hover, .btn-home:focus, .btn-home:active
+{
+  color: rgb(212, 101, 64);
+}
