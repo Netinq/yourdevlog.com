@@ -71,4 +71,8 @@
   font-weight: bold;
   margin-left: 2.5px;
 }
+.article .articles-body p
+{
+  white-space: pre-wrap;
+}
 </style>
