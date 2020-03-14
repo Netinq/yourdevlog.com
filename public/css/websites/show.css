@@ -61,6 +61,35 @@
   margin-bottom: 5px;
   font-style: italic;
 }
+.articles-content .article .article-body .article-del
+{
+  color: #E34545;
+  text-transform: uppercase;
+}
+.articles-content .article .article-body .article-edit
+{
+  color: #D65A31;
+  text-transform: uppercase;
+  border: 1px solid #D65A31;
+}
+.articles-content .article .article-body .article-edit:hover,.articles-content .article .article-body .article-edit:focus
+{
+  color: #ffffff;
+  text-transform: uppercase;
+  border: 1px solid #D65A31;
+  background-color: #D65A31;
+}
+.articles-content .article .article-body .article-edit:active
+{
+  color: #ffffff;
+  text-transform: uppercase;
+  border: 1px solid #dd7a58;
+  background-color: #dd7a58;
+}
+.article .article-body p
+{
+  white-space: pre-wrap;
+}
 .box-web
 {
   background-color: #f7f7f7;

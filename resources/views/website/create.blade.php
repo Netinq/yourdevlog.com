@@ -32,7 +32,7 @@
     </form>
   </div>
 </div>
-<div class="exemple col-md-6">
+<div class="exemple col-md-6 d-none d-sm-block">
   <div class="box-web col-md-8 offset-md-2 col-lg-6 offset-lg-3">
     <div class="box-header">
       <h3 id="exemple_name">name</h3>

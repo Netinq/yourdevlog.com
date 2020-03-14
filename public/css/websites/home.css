@@ -27,3 +27,24 @@
   color: #E34545;
   display: inline !important;
 }
+.website-edit
+{
+  color: #D65A31;
+  text-transform: uppercase;
+  border: 1px solid #D65A31;
+  display: inline !important;
+}
+.website-edit:hover,.website-edit:focus
+{
+  color: #ffffff;
+  text-transform: uppercase;
+  border: 1px solid #D65A31;
+  background-color: #D65A31;
+}
+.website-edit:active
+{
+  color: #ffffff;
+  text-transform: uppercase;
+  border: 1px solid #dd7a58;
+  background-color: #dd7a58;
+}

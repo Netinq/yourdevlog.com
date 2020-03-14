@@ -19,6 +19,7 @@
         <td>{{ $website->name }}</td>
         <td>{{ $website->url }}</td>
         <td class="manage">
+          <a href="{{route('websites.edit', $website->id)}}"><div class="btn website-edit">edit</div></a>
           <a href="{{route('websites.index')}}" onclick="event.preventDefault();document.getElementById('website_delete-form').submit();" ><div class="btn web-del" title="WARNING, you will delete the website">delete</div></a>
         </td>
         <form id="website_delete-form" action="{{ route('websites.destroy', [$website->id]) }}" method="POST">

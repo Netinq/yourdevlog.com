@@ -42,6 +42,12 @@ src="{{ route('data.show', $website->id) }}"&gt
       </div>
       <div class="article-body">
         <p>{{$article->content}}</p>
+        <a href="{{route('articles.edit', $article->id)}}"><div class="btn article-edit">edit</div></a>
+        <a href="{{route('websites.show', $website->id)}}" onclick="event.preventDefault();document.getElementById('website_delete-form').submit();" ><div class="btn article-del" title="WARNING, you will delete the article">delete</div></a>
+        <form id="website_delete-form" action="{{ route('articles.destroy', [$article->id]) }}" method="POST">
+          @csrf
+          @method('DELETE')
+        </form>
       </div>
     </div>
     @endforeach
@@ -75,35 +81,4 @@ src="{{ route('data.show', $website->id) }}"&gt
     </div>
   </div>
 </div>
-{{-- <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="card">
-        <div class="card-header">{{$website->name}}</div>
-        <div class="card-body">{{$website->url}}</div>
-          <form action="{{ route('websites.destroy', [$website->id]) }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-danger">supprimer</button>
-          </form>
-          <a href="{{ route('websites.edit', [$website->id]) }}">
-            <button class="btn btn-warning">edit</button>
-          </a>
-          <a href="{{ route('articles.create') }}">
-            <button class="btn btn-primary">creer</button>
-          </a>
-          <a href="{{ route('data.show', $website->id) }}">
-            <button class="btn btn-primary">data</button>
-          </a>
-      </div>
-      @foreach($articles as $article)
-        <div class="card"  data-article-id="{{ $article->id }}">
-        <div class="card-header">{{$article->name}}</div>
-          <div class="card-body" style="white-space: pre-wrap">{{$article->content}}</div>
-          <a href="{{ route('articles.show', $article->id) }}"><button class="btn btn-primary">Show</button></a>
-        </div>
-      @endforeach
-    </div>
-  </div>
-</div> --}}
 @endsection

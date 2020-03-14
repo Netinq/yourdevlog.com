@@ -84,6 +84,6 @@ class WebsitesController extends Controller
     public function destroy($id)
     {
         Website::destroy($id);
-        return redirect()->home()->with('success', 'Site supprimé');
+        return view('website.show', $id)->with('success', 'Site supprimé');;
     }
 }

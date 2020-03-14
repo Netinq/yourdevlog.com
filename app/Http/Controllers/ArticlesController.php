@@ -65,7 +65,7 @@ class ArticlesController extends Controller
         $type->color = request('type_color');
         $type->save();
         
-        return redirect('websites')->with('success', 'Article enregistré');
+        return redirect('home')->with('success', 'Article enregistré');
     }
 
     public function show($id)
@@ -77,7 +77,12 @@ class ArticlesController extends Controller
     public function edit($id)
     {
         $article = Article::where('id', $id)->first();
-        return view('article.edit', compact('article'));
+        $website = Website::where('id', $article->website_id)->first();
+        $type = Type::where('article_id', $article->id)->first();
+        $article->type = $type->name;
+        $article->color = $type->color;
+        $article->date = $article->created_at->format('d/m/y');
+        return view('article.edit', compact('article', 'website'));
     }
 
     public function update(Request $request, $id)
