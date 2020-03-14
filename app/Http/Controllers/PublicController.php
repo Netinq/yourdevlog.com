@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Website;
+use App\Article;
+use App\Config;
 
 class PublicController extends Controller
 {
