@@ -34,6 +34,7 @@
 }
 .articles-content .article
 {
+  width: calc(100% - 80px);
   padding: 25px;
   padding-left: 40px;
   padding-right: 40px;
