@@ -18,7 +18,7 @@
         <label for="website">select website</label>
         <select class="form-control @if($errors->has('website_id')) is-invalid @endif" id="website" name="website_id">
           @foreach($websites as $website)
-            <option {{old('website_id') == $website->id ? $selected : ""}} value="{{ $website->id }}" data-website-id="{{ $website->id }}">
+            <option {{ (collect(old('website_id'))->contains($website->id)) ? 'selected':'' }} value="{{ $website->id }}" data-website-id="{{ $website->id }}">
               {{ $website->name }} | {{ $website->url }}
             </option>
           @endforeach
