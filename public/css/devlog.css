@@ -114,6 +114,10 @@
   {
     display: none;
   }
+  .articles-content
+  {
+    margin-top: 10px;
+  }
   .articles-content .article
   {
     width: 100%;
