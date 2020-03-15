@@ -47,6 +47,17 @@ src="{{ route('data.show', $website->id) }}"&gt
 </div>
 <div class="col-md-7 articles">
   <div class="articles-content col-md-10 col-10 offset-2 offset-md-2">
+    @if (count($articles) <= 0)
+    <div class="empty">
+        <h3>You don't have any article register</h3>
+        <h4>Create an article now, and publish it</h4>
+        <a href="{{route('articles.create')}}"><div class="btn">create new articles</div></a>
+    </div>
+    @else
+    <div class="empty">
+        <a href="{{route('articles.create')}}"><div class="btn">create new articles</div></a>
+    </div>
+    @endif
     @foreach($articles as $article)
     <div class="article" data-article-id="{{ $article->id }}">
       <div class="article-header">
@@ -62,17 +73,6 @@ src="{{ route('data.show', $website->id) }}"&gt
       </div>
     </div>
     @endforeach
-    @if (count($articles) <= 0)
-    <div class="empty">
-        <h3>You don't have any article register</h3>
-        <h4>Create an article now, and publish it</h4>
-        <a href="{{route('articles.create')}}"><div class="btn">create new articles</div></a>
-    </div>
-    @else
-    <div class="empty">
-        <a href="{{route('articles.create')}}"><div class="btn">create new articles</div></a>
-    </div>
-    @endif
   </div>
 </div>
 <div class="col-md-5 offset-2 offset-md-0 informations d-none d-md-block">
