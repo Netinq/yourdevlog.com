@@ -17,12 +17,9 @@
       <div class="sub-menu">
         <h3>my account</h3>
         <div class="sub-box-container">
-          <div class="sub-box col-10 offset-1">
+          <a href="{{route('users.index')}}"><div class="sub-box col-10 offset-1">
             My profil
-          </div>
-          <div class="sub-box col-10 offset-1">
-            Edit informations
-          </div>
+          </div></a>
           <a href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><div class="sub-box col-10 offset-1" style="color: #E34545; text-decoration:none;">
             Logout
           </div></a>

@@ -1,0 +1,101 @@
+.profil
+{
+  background-color: #f7f7f7;
+  box-shadow: 5px 5px 7px #ebebeb, 
+  -5px -5px 7px #ffffff;
+  border-radius: 15px;
+  margin: 20px;
+  padding: 25px;
+  padding-left: 35Px;
+  padding-right: 35Px;
+}
+.profil .profil-header
+{
+  display: flex;
+  flex-direction: row;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.profil .profil-header .profil-icon
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profil .profil-header .profil-title
+{
+  margin-left: 50px;
+}
+.profil .profil-header h1
+{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #d65a31;
+  margin: 0;
+  margin-top: 5px;
+}
+.profil .profil-header h4
+{
+  font-size: .9rem;
+}
+.profil .profil-body
+{
+  margin-top: 25px;
+}
+.profil .profil-body .profil-info
+{
+  position: relative;
+}
+.profil .profil-body .profil-info h3
+{
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+}
+.profil .profil-body .profil-info h5
+{
+  font-size: 1rem;
+}
+.profil .profil-body button
+{
+  display: inline-block;
+  text-transform: uppercase;
+  border: 1px solid #D65A31;
+  color: #D65A31;
+  background-color: #f7f7f7;
+  box-sizing: border-box;
+}
+.profil .profil-body button:hover,.profil .profil-body button:focus
+{
+  color: #ffffff;
+  text-transform: uppercase;
+  border: 1px solid #D65A31;
+  background-color: #D65A31;
+}
+.profil .profil-body button:active
+{
+  color: #ffffff;
+  text-transform: uppercase;
+  border: 1px solid #dd7a58;
+  background-color: #dd7a58;
+}
+.form .form-group label
+{
+  color: #1B1B1B;
+  text-transform: uppercase;
+}
+.form .form-group input
+{
+  color: #1B1B1B;
+  border: none;
+  background-color: rgba(27, 27, 27, 0.05);
+  outline: none !important;
+}
+.form .message
+{
+  text-align: center;
+}
+.form .message a
+{
+  display: inline;
+  color: #1B1B1B;
+}

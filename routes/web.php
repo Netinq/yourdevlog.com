@@ -5,6 +5,7 @@ Route::redirect('/', '/home');
 
 Auth::routes();
 Route::resource('websites', 'WebsitesController');
+Route::resource('users', 'UserController');
 Route::resource('articles', 'ArticlesController');
 Route::resource('data', 'ExportDataController');
 
