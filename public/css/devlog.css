@@ -97,6 +97,7 @@
 {
   .branding
   {
+    position: relative;
     height: 30vh;
     background-color: #1B1B1B;
     display: flex;
