@@ -79,6 +79,7 @@ It\'s simple, fast and practice. Improve your changelogs, maintenance report...'
     </body>
         
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/delete.js') }}"></script>
     @if($scripts ?? null)
         @foreach($scripts as $script)
         <script src="{{ asset('js/'.$script.'.js') }}"> </script>

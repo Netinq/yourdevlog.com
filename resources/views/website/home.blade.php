@@ -2,6 +2,7 @@
 
 @section('title', 'Websites list')
 @section('content')
+@include('layouts.delete')
 <div class="website offset-2 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
   <table class="table">
     <thead>
@@ -20,12 +21,8 @@
         <td>{{ $website->url }}</td>
         <td class="manage">
           <a href="{{route('websites.edit', $website->id)}}"><div class="btn website-edit">edit</div></a>
-          <a href="{{route('websites.index')}}" onclick="event.preventDefault();document.getElementById('website_delete-form').submit();" ><div class="btn web-del" title="WARNING, you will delete the website">delete</div></a>
+          <div onclick="delete_confirm('{{$website->name}}', '{{ route('websites.destroy', [$website->id]) }}');" class="btn web-del">delete</div></a>
         </td>
-        <form id="website_delete-form" action="{{ route('websites.destroy', [$website->id]) }}" method="POST">
-          @csrf
-          @method('DELETE')
-        </form>
       </tr>
       @endforeach
     </tbody>

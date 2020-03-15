@@ -82,3 +82,8 @@
   border: 1px solid #dd7a58;
   background-color: #dd7a58;
 }
+.user-delete, .profil-info a, .profil-info a:hover, .profil-info a:focus, .profil-info a:active
+{
+  color: #E34545;
+  text-transform: uppercase;
+}

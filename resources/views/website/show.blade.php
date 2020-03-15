@@ -2,6 +2,7 @@
 
 @section('title', $website->name)
 @section('content')
+@include('layouts.delete')
 @if ( Session::has('success') )
 <div class="popup offset-md-1 col-md-11 col-10 offset-2">
   <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -57,11 +58,7 @@ src="{{ route('data.show', $website->id) }}"&gt
       <div class="article-body">
         <p>{{$article->content}}</p>
         <a href="{{route('articles.edit', $article->id)}}"><div class="btn article-edit">edit</div></a>
-        <a href="{{route('websites.show', $website->id)}}" onclick="event.preventDefault();document.getElementById('website_delete-form').submit();" ><div class="btn article-del" title="WARNING, you will delete the article">delete</div></a>
-        <form id="website_delete-form" action="{{ route('articles.destroy', [$article->id]) }}" method="POST">
-          @csrf
-          @method('DELETE')
-        </form>
+        <div class="btn article-del" onclick="delete_confirm('{{$article->name}}', '{{ route('articles.destroy', [$article->id]) }}')">delete</div>
       </div>
     </div>
     @endforeach

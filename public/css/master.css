@@ -60,3 +60,58 @@ label:focus,
     width: calc(100% - 50px);
   }
 }
+
+.delete-confirm
+{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(247, 247, 247, .5);
+  z-index: 1000;
+}
+.delete-confirm .delete-box
+{
+  margin-top: 25vh;
+  background-color: #f7f7f7;
+  box-shadow: 5px 5px 7px #ebebeb, 
+  -5px -5px 7px #ffffff;
+  border-radius: 15px;
+  padding: 50px;
+  text-align: center;
+}
+.delete-confirm .delete-box h4
+{
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.delete-confirm .delete-box .delete-choose .cancel
+{
+  display: inline-block;
+  text-transform: uppercase;
+  border: 1px solid #D65A31;
+  color: #D65A31;
+  background-color: #f7f7f7;
+  box-sizing: border-box;
+}
+.delete-confirm .delete-box .delete-choose .cancel:hover,.delete-confirm .delete-box .delete-choose .cancel:focus
+{
+  color: #ffffff;
+  text-transform: uppercase;
+  border: 1px solid #D65A31;
+  background-color: #D65A31;
+}
+.delete-confirm .delete-box .delete-choose .cancel:active
+{
+  color: #ffffff;
+  text-transform: uppercase;
+  border: 1px solid #dd7a58;
+  background-color: #dd7a58;
+}
+.delete-confirm .delete-box .delete-choose .delete, .delete-confirm .delete-box .delete-choose a, .delete-confirm .delete-box .delete-choose a:hover, .delete-confirm .delete-box .delete-choose a:focus, .delete-confirm .delete-box .delete-choose a:active
+{
+  color: #E34545 !important;
+  text-transform: uppercase;
+}

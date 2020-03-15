@@ -2,6 +2,7 @@
 
 @section('title', $user->name)
 @section('content')
+@include('layouts.delete')
 @if ( Session::has('success') )
 <div class="popup offset-md-1 col-md-11 col-10 offset-2">
   <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -27,6 +28,9 @@
         <h3>E-Mail adress</h3>
         <h5>{{$user->email}}</h5>
         <a href="{{route('users.edit', $user->id)}}"><div class="btn user-edit">edit</div></a>
+      </div>
+      <div class="profil-info">
+        <div class="btn user-delete" onclick="delete_confirm('your profil', '{{ route('users.destroy', [$user->id]) }}');">delete my account</div>
       </div>
     </div>
   </div>
