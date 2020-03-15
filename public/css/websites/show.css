@@ -195,6 +195,7 @@
   text-align: center;
   width: calc(100% - 25px);
   margin-right: 50px;
+  margin-bottom: 20px;
 }
 .empty h3
 {
