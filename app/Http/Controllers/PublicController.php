@@ -15,6 +15,7 @@ class PublicController extends Controller
         $data_url = Config::where('name', 'devlog')->first();
         $data_url = $data_url->value_str;
         $articles = Article::where('website_id', $data_url)->get();
+        $articles->orderBy('created_at', 'desc');
         foreach($articles as $article)
         {
             $type = Type::where('article_id', $article->id)->first();

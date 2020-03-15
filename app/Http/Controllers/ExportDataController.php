@@ -12,6 +12,7 @@ class ExportDataController extends Controller
     public function show($id)
     {
         $articles = Article::where('website_id', $id)->get();
+        $articles->orderBy('created_at', 'desc');
         foreach($articles as $article)
         {
             $type = Type::where('article_id', $article->id)->first();
