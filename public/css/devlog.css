@@ -114,6 +114,10 @@
   {
     display: none;
   }
+  .articles-content
+  {
+    margin-top: 32vh;
+  }
   .articles-content .article
   {
     width: 100%;
