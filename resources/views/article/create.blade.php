@@ -16,9 +16,9 @@
       </div>
       <div class="form-group">
         <label for="website">select website</label>
-        <select class="form-control @if($errors->has('website_id')) is-invalid @endif" id="website" name="website_id" value="{{ old('website_id') }}">
+        <select class="form-control @if($errors->has('website_id')) is-invalid @endif" id="website" name="website_id">
           @foreach($websites as $website)
-            <option value="{{ $website->id }}" data-website-id="{{ $website->id }}">
+            <option {{ old('website_id') ? "" : "selected" }} value="{{ $website->id }}" data-website-id="{{ $website->id }}">
               {{ $website->name }} | {{ $website->url }}
             </option>
           @endforeach
@@ -44,7 +44,7 @@
       <div class="form-group">
         <label for="content">content</label>
         <textarea id="content" class="form-control @if($errors->has('content')) is-invalid @endif" name="content" placeholder="- New Design
-- We are introduce a new search engine" >{{ old('content') }}"</textarea>
+- We are introduce a new search engine" >{{ old('content') }}</textarea>
         @if ($errors->has('content'))
           <span class="text-danger">{{ $errors->first('content') }}</span>
         @endif
