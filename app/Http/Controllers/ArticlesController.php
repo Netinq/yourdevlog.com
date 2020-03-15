@@ -47,7 +47,7 @@ class ArticlesController extends Controller
         $this->validate($request,[
             'name' => 'required|max:35',
             'type' => 'required',
-            'version' => 'required|max:50',
+            'version' => 'max:50',
             'content' => 'required',
         ]);
         

@@ -9,14 +9,14 @@
       @csrf
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="name" class="form-control" id="name" name="name" placeholder="Summer update 📢">
+        <input type="name" class="form-control @if($errors->has('name')) is-invalid @endif" id="name" name="name" placeholder="Summer update 📢" value="{{ old('name') }}">
         @if ($errors->has('name'))
           <span class="text-danger">{{ $errors->first('name') }}</span>
         @endif
       </div>
       <div class="form-group">
         <label for="website">select website</label>
-        <select class="form-control" id="website" name="website_id">
+        <select class="form-control @if($errors->has('website_id')) is-invalid @endif" id="website" name="website_id" value="{{ old('website_id') }}">
           @foreach($websites as $website)
             <option value="{{ $website->id }}" data-website-id="{{ $website->id }}">
               {{ $website->name }} | {{ $website->url }}
@@ -29,22 +29,22 @@
       </div>
       <div class="form-group">
         <label for="type">Type Select</label>
-        <input type="type" class="form-control" id="type" name="type" placeholder="Release">
+        <input type="type" class="form-control @if($errors->has('type')) is-invalid @endif" id="type" name="type" placeholder="Release" value="{{ old('type') }}">
         @if ($errors->has('type'))
           <span class="text-danger">{{ $errors->first('type') }}</span>
         @endif
       </div>
       <div class="form-group">
         <label for="version">Version</label>
-        <input style="width: 45%;" type="version" class="form-control" id="version" name="version" placeholder="beta-0.1.0">
+        <input style="width: 45%;" type="version" class="form-control @if($errors->has('version')) is-invalid @endif" id="version" name="version" placeholder="beta-0.1.0" value="{{ old('version') }}">
         @if ($errors->has('version'))
           <span class="text-danger">{{ $errors->first('version') }}</span>
         @endif
       </div>
       <div class="form-group">
         <label for="content">content</label>
-        <textarea id="content" class="form-control" name="content" placeholder="- New Design
-- We are introduce a new search engine" ></textarea>
+        <textarea id="content" class="form-control @if($errors->has('content')) is-invalid @endif" name="content" placeholder="- New Design
+- We are introduce a new search engine" >{{ old('content') }}"</textarea>
         @if ($errors->has('content'))
           <span class="text-danger">{{ $errors->first('content') }}</span>
         @endif
