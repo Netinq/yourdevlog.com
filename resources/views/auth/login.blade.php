@@ -4,7 +4,7 @@
 @section('content')
 <div class="branding col-sm-7">
     <img alt="YourDevlog's logo" src="{{asset('images/logo.png')}}">
-    <h1>hey, welcome back</h1>
+    <h1>hello !</h1>
     <span>Please, login to your account</span>
     <a href="{{route('welcome')}}"><div class="btn btn-home">Back to home</div></a>
 </div>
