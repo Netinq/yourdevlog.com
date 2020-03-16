@@ -99,3 +99,11 @@ form
   display: inline;
   color: #1B1B1B;
 }
+.btn-home
+{
+  color: #D65A31;
+}
+.btn-home:hover, .btn-home:focus, .btn-home:active
+{
+  color: rgb(212, 101, 64);
+}
