@@ -55,7 +55,7 @@ It\'s simple, fast and practice.')
             @else {{Config::get('app.name')}} : Create and manage our devlogs @endif
         </title>
 
-        <meta http-equiv="content-language" content="fr">
+        <meta http-equiv="content-language" content="en">
 
         <!-- STATIC Stylesheet -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/layouts/navbar.css') }}">
