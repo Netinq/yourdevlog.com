@@ -49,9 +49,17 @@ body
   text-align: center;
   color: #ffffff;
 }
+@media screen and (max-width: 576px)
+{
+  .brand .title
+  {
+    margin-top: 75px;
+  }
+}
 .brand .title img
 {
-  height: 50vh;
+  width: 50vh;
+  max-width: 100%;
 }
 .brand .title h1
 {
@@ -92,6 +100,13 @@ body
   background-color: #f7f7f7;
   box-shadow: 0 0 7px #07070771;
   border-radius: 15px;
+}
+@media screen and (max-width: 576px)
+{
+  .article
+  {
+    bottom: -150px;
+  }
 }
 .article .article-header
 {
