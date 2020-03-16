@@ -1,8 +1,8 @@
 @section('description', 'Create a devlog and manage it. You can register our websites to create a devlog for our comminunty/staff. 
-It\'s simple, fast and practice. Improve your changelogs, maintenance report...')
+It\'s simple, fast and practice.')
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
     <head>
         <!-- Default meta -->
         <meta charset='utf-8'>
@@ -22,6 +22,8 @@ It\'s simple, fast and practice. Improve your changelogs, maintenance report...'
         <meta name='theme-color' content='#D65A31'>
       
         <link rel='shortcut icon' type='image/png' href='{{ asset('images/logo.png') }}'>
+        <link rel='logo' type='image/png' href='{{ asset('images/logo.png') }}'>
+        <link rel="apple-touch-icon" href="{{ asset('images/logo.png') }}" />
     
         <!-- Twitter Card meta -->
         <meta name='twitter:card' content='summary'>

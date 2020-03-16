@@ -26,4 +26,9 @@ class PublicController extends Controller
         }
         return view('devlog', compact('data_url', 'articles'));
     }
+
+    public function welcome()
+    {
+        return view('welcome');
+    }
 }

@@ -4,7 +4,7 @@
 @section('content')
 <div class="branding col-sm-7">
     <img alt="YourDevlog's logo" src="{{asset('images/logo.png')}}">
-    <h1>login</h1>
+    <h1>hey, welcome back</h1>
     <span>Please, login to your account</span>
 </div>
 <div class="form col-sm-5">

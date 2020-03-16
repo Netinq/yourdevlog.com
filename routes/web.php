@@ -1,8 +1,5 @@
 <?php
 
-
-Route::redirect('/', '/home');
-
 Auth::routes();
 Route::resource('websites', 'WebsitesController');
 Route::resource('users', 'UserController');
@@ -11,5 +8,6 @@ Route::resource('data', 'ExportDataController');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/devlog', 'PublicController@devlog')->name('devlog');
+Route::get('/', 'PublicController@welcome')->name('welcome');
 
 Auth::routes();
