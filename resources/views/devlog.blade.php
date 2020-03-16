@@ -6,7 +6,7 @@
     <img alt="YourDevlog's logo" src="{{asset('images/logo.png')}}">
     <h1>yourdevlog</h1>
     <span>See our devlog</span>
-    <a href="{{route('welcome')}}"><div class="btn btn-home">Back to home</div></a>
+    <a href="{{route('home')}}"><div class="btn btn-home">Back to home</div></a>
 </div>
 <div class="articles-content col-sm-8 offset-sm-4">
     @foreach($articles as $article)
