@@ -6,7 +6,7 @@
     <img alt="YourDevlog's logo" src="{{asset('images/logo.png')}}">
     <h1>welcome to yourdevlog</h1>
     <span>create a new account now</span>
-    <a href="{{route('home')}}"><div class="btn btn-home">Back to home</div></a>
+    <a href="{{route('welcome')}}"><div class="btn btn-home">Back to home</div></a>
 </div>
 <div class="form col-sm-5">
     <form method="POST" action="{{ route('register') }}" class="col-md-8">

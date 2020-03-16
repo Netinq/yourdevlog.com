@@ -6,7 +6,7 @@
     <img alt="YourDevlog's logo" src="{{asset('images/logo.png')}}">
     <h1>hey, welcome back</h1>
     <span>Please, login to your account</span>
-    <a href="{{route('home')}}"><div class="btn btn-home">Back to home</div></a>
+    <a href="{{route('welcome')}}"><div class="btn btn-home">Back to home</div></a>
 </div>
 <div class="form col-sm-5">
     <form method="POST" action="{{ route('login') }}" class="col-md-8">
