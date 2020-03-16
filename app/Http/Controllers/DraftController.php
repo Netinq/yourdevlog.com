@@ -7,79 +7,41 @@ use Illuminate\Http\Request;
 
 class DraftController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct()
     {
-        //
+        $this->middleware('auth');
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required|max:35',
+            'type' => 'required',
+            'version' => 'max:50',
+            'content' => 'required',
+        ]);
+        
+        $article = new drat();
+        $article->name = request('name');
+        $article->website_id = request('website_id');
+        $article->content = request('content');
+        $article->version = request('version');
+        $article->save();
+
+        $type = new Type();
+        $type->user_id = Auth::id();
+        $type->article_id = $article->id;
+        $type->name = request('type');
+        $type->color = request('type_color');
+        $type->save();
+        
+        return redirect()->route('websites.show', $article->website_id)->with('success', 'An article has been article was created');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Draft  $draft
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Draft $draft)
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Draft  $draft
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Draft $draft)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Draft  $draft
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Draft $draft)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Draft  $draft
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Draft $draft)
-    {
-        //
+        $article = Article::where('id', $id)->first();
+        Article::destroy($id);
+        return redirect()->route('websites.show', $article->website_id)->with('success', 'An article has been article was deleted');
     }
 }
