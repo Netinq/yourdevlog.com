@@ -22,6 +22,10 @@ class HomeController extends Controller
 
     public function index()
     {
+        if (Auth::user()->project_id != null)
+        {
+            return redirect()->route('isn.home');
+        }
         $websites = Website::where('user_id', Auth::id())->get();
         foreach($websites as $website)
         {

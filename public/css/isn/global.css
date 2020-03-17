@@ -1,0 +1,123 @@
+.branding
+{
+  height: 100vh;
+  background-color: #1B1B1B;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+}
+.branding img
+{
+  margin-top: 10%;
+  height: 45%;
+}
+.branding h1
+{
+  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: 7.5px;
+  margin: 0;
+  margin-top: 45%;
+}
+.branding span
+{
+  color: #ffffff;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+.btn-home
+{
+  color: #D65A31;
+}
+.btn-home:hover, .btn-home:focus, .btn-home:active
+{
+  color: rgb(212, 101, 64);
+}
+.articles-content
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  width: 100%;
+}
+.articles-content .article
+{
+  width: calc(100% - 80px);
+  padding: 25px;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-bottom: 25px;
+  background-color: #f7f7f7;
+  box-shadow: 5px 5px 7px #f1f1f1, 
+  -5px -5px 7px #ffffff;
+  border-radius: 15px;
+}
+.articles-content .article .article-header
+{
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #27252427;
+}
+.articles-content .article .article-header h3
+{
+  color: #272524;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 0;
+}
+.articles-content .article .article-header .type
+{
+  background-color: rgba(27, 27, 27, 0.05);
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+}
+.articles-content .article .article-header .name
+{
+  font-size: .9rem;
+  font-weight: bold;
+  margin-left: 2.5px;
+}
+.articles-content .article .article-header .date
+{
+  font-size: .7rem;
+  margin-left: 2.5px;
+  margin-top: 10px;
+  color: #272727;
+  margin-bottom: 5px;
+  font-style: italic;
+}
+.article .article-body p
+{
+  white-space: pre-wrap;
+}
+@media screen and (max-width: 575px)
+{
+  .branding
+  {
+    position: relative;
+    height: 30vh;
+    background-color: #1B1B1B;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    box-shadow: 0 0 3px #1B1B1B;
+  }
+  .branding img
+  {
+    margin-top: 15px;
+    height: 45%;
+  }
+  .articles-content .article
+  {
+    width: 100%;
+  }
+  .branding h1
+  {
+    margin-top: 5%;
+  }
+}

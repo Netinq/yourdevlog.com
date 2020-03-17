@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Website;
 use App\Type;
+use App\ProjetsLink;
 use App\Article;
 
 class ArticlesController extends Controller
@@ -22,6 +23,10 @@ class ArticlesController extends Controller
 
     public function create()
     {
+        if (Auth::user()->project_id != null)
+        {
+            return redirect()->route('isn.create');
+        }
         $websites = Website::where('user_id', Auth::id())->get();
         $types = Type::where('user_id', null)->get();
         return view('article.create', compact('websites', 'types'));
