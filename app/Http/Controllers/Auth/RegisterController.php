@@ -67,12 +67,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $project = ProjetsLink::where('code', $data['code'])->first();
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'project_id' => $project->id,
-        ]);
+        if (isset($data['code']))
+        { $project = ProjetsLink::where('code', $data['code'])->first();
+            return User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'project_id' => $project->id,
+            ]);
+        } else {
+            return User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+            ]);
+        }
     }
 }
