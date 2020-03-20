@@ -80,12 +80,13 @@ class ISNController extends Controller
         $website = Website::where('id', $id)->first();
         $project = ProjetsLink::where('name', $website->name)->first();
         $articles = Article::where('website_id', $id)->orderBy('created_at', 'desc')->get();
+        $count = 0;
         foreach($articles as $article)
         {
             $type = Type::where('article_id', $article->id)->first();
             if ($type->name != $name)
             {
-                unset($article);
+                unset($articles[$count]);
             } else {
                 $article->type = $type->name;
                 $article->color = $type->color;
@@ -93,6 +94,7 @@ class ISNController extends Controller
                 $article->website_name = $website_data->name;
                 $article->date = $article->created_at->format('d/m/y');
             }
+            $count++;
         }
         return view('isn.view', compact('articles', 'project'));
     }
