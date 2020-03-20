@@ -85,7 +85,7 @@ class ISNController extends Controller
             $type = Type::where('article_id', $article->id)->first();
             if ($type->name != $name)
             {
-                array_splice($articles, $article);
+                unset($article);
             } else {
                 $article->type = $type->name;
                 $article->color = $type->color;
