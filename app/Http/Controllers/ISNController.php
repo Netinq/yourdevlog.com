@@ -27,8 +27,16 @@ class ISNController extends Controller
         {
             $project = ProjetsLink::where('name', $website->name)->first();
             $website->students = $project->students;
+            $articles = Article::where('website_id', $website->id)->orderBy('created_at', 'desc')->get();
+            $users = array();
+            foreach($articles as $article)
+            {
+                $type = Type::where('article_id', $article->id)->first();
+                if (!(in_array($type->name, $users))) array_push($users, $type->name);
+            }
+            $website->users = $users;
         }
-        return view('isn.global', compact('websites'));
+        return view('isn.global', compact('websites', 'users'));
     }
     public function home()
     {
@@ -64,6 +72,27 @@ class ISNController extends Controller
             $website_data = Website::where('id', $article->website_id)->first();
             $article->website_name = $website_data->name;
             $article->date = $article->created_at->format('d/m/y');
+        }
+        return view('isn.view', compact('articles', 'project'));
+    }
+    public function byUser($id, $name)
+    {
+        $website = Website::where('id', $id)->first();
+        $project = ProjetsLink::where('name', $website->name)->first();
+        $articles = Article::where('website_id', $id)->orderBy('created_at', 'desc')->get();
+        foreach($articles as $article)
+        {
+            $type = Type::where('article_id', $article->id)->first();
+            if ($type->name != $name)
+            {
+                $article = null;
+            } else {
+                $article->type = $type->name;
+                $article->color = $type->color;
+                $website_data = Website::where('id', $article->website_id)->first();
+                $article->website_name = $website_data->name;
+                $article->date = $article->created_at->format('d/m/y');
+            }
         }
         return view('isn.view', compact('articles', 'project'));
     }
