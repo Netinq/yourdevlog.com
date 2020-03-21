@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Website;
 use App\Article;
 use App\Config;
+use App\Collaborator;
 
 class HomeController extends Controller
 {
@@ -26,6 +27,12 @@ class HomeController extends Controller
         {
             $website->articles = Article::where('website_id', $website->id)->count();
         }
-        return view('home', compact('websites'));
+        $collaborators_id = Collaborator::where('user_id', Auth::id())->get();
+        $websites_col = array();
+        foreach($collaborators_id as $colid)
+        {
+            array_push($websites_col, Website::where('id', $colid->website_id)->first());
+        }
+        return view('home', compact('websites', 'websites_col'));
     }
 }

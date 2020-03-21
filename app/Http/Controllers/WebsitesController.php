@@ -19,11 +19,17 @@ class WebsitesController extends Controller
     public function index()
     {   
         $websites = Website::where('user_id', Auth::id())->get();
+        $collaborators_id = Collaborator::where('user_id', Auth::id())->get();
+        $websites_col = array();
+        foreach($collaborators_id as $colid)
+        {
+            array_push($websites_col, Website::where('id', $colid)->first());
+        }
         foreach($websites as $website)
         {
             $website->articles = Article::where('website_id', $website->id)->count();
         }
-        return view('website.home', compact('websites'));
+        return view('website.home', compact('websites', 'websites_col'));
     }
 
     public function create()
@@ -49,6 +55,13 @@ class WebsitesController extends Controller
 
     public function show($id)
     {
+        $website = Website::where('id', $id)->first();
+        if ($website->user_id != Auth::id()
+        && 
+        !Collaborator::where('website_id', $id)->where('user_id', Auth::id())->exists())
+        {
+            return redirect()->home()->with('error', 'You don\' have permission !');
+        }
         $articles = Article::where('website_id', $id)->orderBy('created_at', 'desc')->get();
         foreach($articles as $article)
         {
@@ -57,13 +70,15 @@ class WebsitesController extends Controller
             $article->color = $type->color;
             $article->date = $article->created_at->format('d/m/y');
         }
-        $website = Website::where('id', $id)->first();
         return view('website.show', compact('articles', 'website'));
     }
 
     public function edit($id)
     {
         $website = Website::where('id', $id)->first();
+        if ($website->user_id != Auth::id()){
+            return redirect()->home()->with('error', 'You don\' have permission !');
+        }
         return view('website.edit', compact('website'));
     }
 
@@ -74,9 +89,7 @@ class WebsitesController extends Controller
             'url' => 'url',
         ]);
         $website = Website::find($id);
-        if ($website->user_id != Auth::id()
-        && Collaborator::where('website_id', $id) != Auth::id())
-        {
+        if ($website->user_id != Auth::id()){
             return redirect()->home()->with('error', 'You don\' have permission !');
         }
         $website->name = request('name');
@@ -89,8 +102,7 @@ class WebsitesController extends Controller
     public function destroy($id)
     {
         $website = Website::where('id', $id)->first();
-        if ($website->user_id != Auth::id())
-        {
+        if ($website->user_id != Auth::id()){
             return redirect()->home()->with('error', 'You don\' have permission !');
         }
         Website::destroy($id);

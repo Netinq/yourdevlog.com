@@ -21,7 +21,7 @@
         <td>{{ $website->url }}</td>
         <td class="manage">
           <a href="{{route('websites.edit', $website->id)}}"><div class="btn website-edit">edit</div></a>
-          <div onclick="delete_confirm('{{$website->name}}', '{{ route('websites.destroy', [$website->id]) }}');" class="btn web-del">delete</div></a>
+          <div onclick="delete_confirm('{{$website->name}}', '{{ route('websites.destroy', ['c8f34c48-5ad1-41a7-96af-2e2f01618488']) }}');" class="btn web-del">delete</div></a>
         </td>
       </tr>
       @endforeach

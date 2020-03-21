@@ -8,6 +8,7 @@ use App\Website;
 use App\Type;
 use App\ProjetsLink;
 use App\Article;
+use App\Collaborator;
 
 class ArticlesController extends Controller
 {
@@ -21,6 +22,33 @@ class ArticlesController extends Controller
         return route('home');
     }
 
+    public function createid($id)
+    {
+        if (Auth::user()->project_id != null)
+        {
+            return redirect()->route('isn.create');
+        }
+        $websites = Website::where('user_id', Auth::id())->get();
+        $collaborators_id = Collaborator::where('user_id', Auth::id())->get();
+        $websites_col = array();
+        foreach($collaborators_id as $colid)
+        {
+            array_push($websites_col, Website::where('id', $colid->website_id)->first());
+        }
+        foreach($websites as $website)
+        {
+            if ($website->id == $id) $website->select = true;
+            else $website->select = false;
+        }
+        foreach($websites_col as $website)
+        {
+            if ($website->id == $id) $website->select = true;
+            else $website->select = false;
+        }
+        $types = Type::where('user_id', null)->get();
+        return view('article.create', compact('websites', 'types', 'websites_col'));
+    }
+
     public function create()
     {
         if (Auth::user()->project_id != null)
@@ -28,8 +56,14 @@ class ArticlesController extends Controller
             return redirect()->route('isn.create');
         }
         $websites = Website::where('user_id', Auth::id())->get();
+        $collaborators_id = Collaborator::where('user_id', Auth::id())->get();
+        $websites_col = array();
+        foreach($collaborators_id as $colid)
+        {
+            array_push($websites_col, Website::where('id', $colid->website_id)->first());
+        }
         $types = Type::where('user_id', null)->get();
-        return view('article.create', compact('websites', 'types'));
+        return view('article.create', compact('websites', 'types', 'websites_col'));
     }
 
     public function store(Request $request)
@@ -40,7 +74,13 @@ class ArticlesController extends Controller
             'version' => 'max:50',
             'content' => 'required',
         ]);
-        
+        $website = Website::where('id', request('website_id'))->first();
+        if ($website->user_id != Auth::id()
+        && 
+        !Collaborator::where('website_id', request('website_id'))->where('user_id', Auth::id())->exists())
+        {
+            return redirect()->home()->with('error', 'You don\' have permission !');
+        }
         $article = new article();
         $article->name = request('name');
         $article->website_id = request('website_id');
@@ -68,6 +108,12 @@ class ArticlesController extends Controller
     {
         $article = Article::where('id', $id)->first();
         $website = Website::where('id', $article->website_id)->first();
+        if ($website->user_id != Auth::id()
+        && 
+        !Collaborator::where('website_id', $article->website_id)->where('user_id', Auth::id())->exists())
+        {
+            return redirect()->home()->with('error', 'You don\' have permission !');
+        }
         $type = Type::where('article_id', $article->id)->first();
         $article->type = $type->name;
         $article->color = $type->color;
@@ -81,7 +127,13 @@ class ArticlesController extends Controller
             'name' => 'required|max:35',
             'content' => 'required',
         ]);
-        
+        $website = Website::where('id', request('website_id'))->first();
+        if ($website->user_id != Auth::id()
+        && 
+        !Collaborator::where('website_id', $id)->where('user_id', Auth::id())->exists())
+        {
+            return redirect()->home()->with('error', 'You don\' have permission !');
+        }
         $article = Article::find($id);
         $article->name = request('name');
         $article->website_id = request('website_id');
@@ -101,6 +153,11 @@ class ArticlesController extends Controller
     public function destroy($id)
     {
         $article = Article::where('id', $id)->first();
+        $website = Website::where('id', $article->website_id)->first();
+        if ($website->user_id != Auth::id())
+        {
+            return redirect()->route('websites.show', $article->website_id)->with('error', 'You don\' have permission !');
+        }
         Article::destroy($id);
         return redirect()->route('websites.show', $article->website_id)->with('success', 'An article has been article was deleted');
     }

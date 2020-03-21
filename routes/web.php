@@ -4,6 +4,7 @@ Auth::routes();
 Route::resource('websites', 'WebsitesController');
 Route::resource('users', 'UserController');
 Route::resource('articles', 'ArticlesController');
+Route::get('articles/createid/{id}', 'ArticlesController@createid')->name('articles.createid');
 Route::resource('data', 'ExportDataController');
 
 Route::get('/home', 'HomeController@index')->name('home');
