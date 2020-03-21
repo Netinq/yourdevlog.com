@@ -38,7 +38,7 @@ label:focus,
     box-shadow: none !important;
 }
 
-.popup .alert
+.popup .alert-success
 {
   margin-left: 25px;
   margin-right: 35px;
@@ -48,6 +48,19 @@ label:focus,
   -5px -5px 7px #ffffff;
   border: none;
   color: #1cb475;
+  font-size: 1.1rem;
+  width: 50%;
+}
+.popup .alert-error
+{
+  margin-left: 25px;
+  margin-right: 35px;
+  margin-top: 25px;
+  background-color: #f7f7f7;
+  box-shadow: 5px 5px 7px #ebebeb, 
+  -5px -5px 7px #ffffff;
+  border: none;
+  color: #b41c1c;
   font-size: 1.1rem;
   width: 50%;
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Website;
+use App\Collaborator;
 use App\Article;
 use App\Type;
 
@@ -72,8 +73,12 @@ class WebsitesController extends Controller
             'name' => 'max:35',
             'url' => 'url',
         ]);
-        
         $website = Website::find($id);
+        if ($website->user_id != Auth::id()
+        && Collaborator::where('website_id', $id) != Auth::id())
+        {
+            return redirect()->home()->with('error', 'You don\' have permission !');
+        }
         $website->name = request('name');
         $website->url = request('url');
  
