@@ -84,6 +84,10 @@ class WebsitesController extends Controller
     public function destroy($id)
     {
         $website = Website::where('id', $id)->first();
+        if ($website->user_id != Auth::id())
+        {
+            return redirect()->home()->with('error', 'You don\' have permission !');
+        }
         Website::destroy($id);
         return redirect()->home()->with('success', $website->name.' has been deleted');
     }
