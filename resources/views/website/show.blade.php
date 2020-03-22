@@ -72,6 +72,13 @@ src="{{ route('data.show', $website->id) }}"&gt
           </code>
         </div>
         <div class="info">
+          <h4>Collaborators</h4>
+          <div class="coll coll-add" onclick="collaborator_add();"><img src="{{asset('images/icons/plus-orange.svg')}}"></div>
+          @foreach($website->collaborators as $collaborator)
+          <div class="coll" onclick="delete_confirm('Collaborator: {{$collaborator->name}}', '{{ route('collaborators.destroy', [$collaborator->id, $website->id]) }}')">{{$collaborator->name}}<div class="coll-delete">x</div></div>
+          @endforeach
+        </div>
+        <div class="info">
           <a href="{{route('websites.index')}}"><div class="btn website-man">manage</div></a>
         </div>
       </div>
@@ -132,7 +139,6 @@ src="{{ route('data.show', $website->id) }}"&gt
 </iframe>
           </code>
         </div>
-        @if (isset($website->collaborators))
         <div class="info">
           <h4>Collaborators</h4>
           <div class="coll coll-add" onclick="collaborator_add();"><img src="{{asset('images/icons/plus-orange.svg')}}"></div>
@@ -140,7 +146,6 @@ src="{{ route('data.show', $website->id) }}"&gt
           <div class="coll" onclick="delete_confirm('Collaborator: {{$collaborator->name}}', '{{ route('collaborators.destroy', [$collaborator->id, $website->id]) }}')">{{$collaborator->name}}<div class="coll-delete">x</div></div>
           @endforeach
         </div>
-        @endif
         <div class="info">
           <a href="{{route('websites.index')}}"><div class="btn website-man">manage</div></a>
         </div>
