@@ -143,12 +143,11 @@ class ArticlesController extends Controller
         $article->version = request('version');
         $article->save();
 
-        $type = Type::where('article_id', $id);
+        $type = Type::where('article_id', $id)->first();
         $type->name = request('type');
         $type->color = request('type_color');
         $type->save();
- 
-        $article->save();
+
         return redirect()->route('websites.show', $article->website_id)->with('success', 'An article has been article was updated');
     }
 
