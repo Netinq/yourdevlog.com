@@ -48,3 +48,9 @@
   border: 1px solid #dd7a58;
   background-color: #dd7a58;
 }
+.coll
+{
+  border: 1px solid #dbdbdb;
+  padding: 5px;
+  border-radius: 5px;
+}

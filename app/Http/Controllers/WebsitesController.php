@@ -8,6 +8,7 @@ use App\Website;
 use App\Collaborator;
 use App\Article;
 use App\Type;
+use App\User;
 
 class WebsitesController extends Controller
 {
@@ -19,17 +20,11 @@ class WebsitesController extends Controller
     public function index()
     {   
         $websites = Website::where('user_id', Auth::id())->get();
-        $collaborators_id = Collaborator::where('user_id', Auth::id())->get();
-        $websites_col = array();
-        foreach($collaborators_id as $colid)
-        {
-            array_push($websites_col, Website::where('id', $colid)->first());
-        }
         foreach($websites as $website)
         {
             $website->articles = Article::where('website_id', $website->id)->count();
         }
-        return view('website.home', compact('websites', 'websites_col'));
+        return view('website.home', compact('websites'));
     }
 
     public function create()
@@ -56,6 +51,13 @@ class WebsitesController extends Controller
     public function show($id)
     {
         $website = Website::where('id', $id)->first();
+        $collaborators = Collaborator::where('website_id', $website->id)->get();
+        $users = array();
+        foreach($collaborators as $collaborator)
+        {
+            array_push($users, User::where('id', $collaborator->user_id)->first());
+        }
+        $website->collaborators = $users;
         if ($website->user_id != Auth::id()
         && 
         !Collaborator::where('website_id', $id)->where('user_id', Auth::id())->exists())

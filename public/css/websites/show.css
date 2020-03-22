@@ -100,7 +100,7 @@
   margin-top: 50px;
   padding: 25px;
   margin-right: 50px;
-  position: fixed;
+  position: absolute;
 }
 @media screen and (max-width:767px)
 {
@@ -223,4 +223,30 @@
   background-color: #252525 !important;
   color: #ffffff;
   border: 2px solid #252525 !important;
+}
+.coll
+{
+  display: inline-block;
+  border: 1px solid #e4e4e4;
+  padding: 5px;
+  border-radius: 25px;
+  font-size: .8rem;
+  cursor: pointer;
+}
+.coll-add img
+{
+  height: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+.coll-delete
+{
+  display: inline-block;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #b41c1c;
+  margin-left: 10px;
+  margin-right: 10px;
 }

@@ -7,4 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Collaborator extends Model
 {
     public $incrementing = false;
+    public $timestamps = false;
 }

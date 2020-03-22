@@ -3,6 +3,28 @@
 @section('title', $website->name)
 @section('content')
 @include('layouts.delete')
+<div id="add_collaborator" class="add-collaborator">
+  <div class="add-box col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3">
+    <div class="close-add" onclick="$('#add_collaborator').hide();">x</div>
+    <h3>Add collaborator</h3>
+    <div id="search-form" class="search-form js-search-form">
+      <form class="form-search" action="{{route('collaborators.store')}}" method="post">
+        @csrf
+        <div class="input-group">
+          <select class="form-control col-3 @if($errors->has('website_id')) is-invalid @endif" id="website" name="website_id">
+              <option value="{{$website->id}}">
+                {{ $website->name }} | {{ $website->url }}
+              </option>
+          </select>
+          <input type="email" class="form-control" placeholder="User e-mail" name="email">
+          <div class="input-group-append">
+            <button class="btn add" type="submit">add</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 @if ( Session::has('success') )
 <div class="popup offset-md-1 col-md-11 col-10 offset-2">
   <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -110,6 +132,15 @@ src="{{ route('data.show', $website->id) }}"&gt
 </iframe>
           </code>
         </div>
+        @if (isset($website->collaborators))
+        <div class="info">
+          <h4>Collaborators</h4>
+          <div class="coll coll-add" onclick="collaborator_add();"><img src="{{asset('images/icons/plus-orange.svg')}}"></div>
+          @foreach($website->collaborators as $collaborator)
+          <div class="coll" onclick="delete_confirm('Collaborator: {{$collaborator->name}}', '{{ route('collaborators.destroy', [$collaborator->id, $website->id]) }}')">{{$collaborator->name}}<div class="coll-delete">x</div></div>
+          @endforeach
+        </div>
+        @endif
         <div class="info">
           <a href="{{route('websites.index')}}"><div class="btn website-man">manage</div></a>
         </div>

@@ -4,7 +4,9 @@ Auth::routes();
 Route::resource('websites', 'WebsitesController');
 Route::resource('users', 'UserController');
 Route::resource('articles', 'ArticlesController');
+Route::resource('collaborators', 'CollaboratorController');
 Route::get('articles/createid/{id}', 'ArticlesController@createid')->name('articles.createid');
+Route::delete('collaborators/{id}/{websiteid}', 'CollaboratorController@destroy')->name('collaborators.destroy');
 Route::resource('data', 'ExportDataController');
 
 Route::get('/home', 'HomeController@index')->name('home');
