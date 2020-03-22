@@ -156,7 +156,9 @@ class ArticlesController extends Controller
     {
         $article = Article::where('id', $id)->first();
         $website = Website::where('id', $article->website_id)->first();
-        if ($website->user_id != Auth::id())
+        if ($website->user_id != Auth::id()
+        && 
+        !Collaborator::where('website_id', $id)->where('user_id', Auth::id())->exists())
         {
             return redirect()->route('websites.show', $article->website_id)->with('error', 'You don\' have permission !');
         }
