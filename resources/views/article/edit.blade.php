@@ -5,7 +5,7 @@
 <div class="form col-md-8 col-lg-6 row">
   <div class="form-container col-10 offset-1 col-sm-8 offset-sm-2">
     <h1>edit an article</h1>
-    <form method="POST" action="{{ route('articles.store') }}">
+    <form method="POST" action="{{ route('articles.update') }}">
       @csrf
       <div class="form-group">
         <label for="name">Name</label>
