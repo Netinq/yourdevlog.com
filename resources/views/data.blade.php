@@ -24,6 +24,12 @@
   </div>
 </body>
 <style>
+  html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
 .articles-content
 {
   display: flex;
