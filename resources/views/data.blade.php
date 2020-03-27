@@ -24,6 +24,7 @@
   </div>
 </body>
 <style>
+  @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
   body {
   margin: 0;
   font-family: "Nunito", sans-serif;
