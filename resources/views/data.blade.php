@@ -3,8 +3,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   </head>
 <body>
   <div id="app">
@@ -26,6 +24,16 @@
   </div>
 </body>
 <style>
+  body {
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #212529;
+  text-align: left;
+  background-color: #f8fafc;
+}
 html {
   font-family: sans-serif;
   line-height: 1.15;
